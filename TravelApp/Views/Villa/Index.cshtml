@@ -1,0 +1,43 @@
+﻿@model IEnumerable<TravelApp.Domain.Entities.Villa>
+
+<div class="container mt-5">
+
+    <div class="card shadow-lg border-0">
+
+        <div class="card-header bg-success text-white text-center py-3">
+            <h2 class="mb-0">Villas</h2>
+        </div>
+
+        <div class="card-body">
+          <div class="d-flex justify-content-end text-end mb-2">
+              <a asp-action="Add" asp-controller="Villa" class="btn btn-success">Create</a>
+          </div>
+            <div class="table-responsive">
+                <table class="table table-striped table-hover align-content-end mb-0 text-center">
+                    <thead class="table-success">
+                        <tr>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Sqft</th>
+                            <th>Occupancy</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Name</td>
+                                <td>@item.Price.ToString("c")</td>
+                                <td>@item.SquareMeters</td>
+                                <td>@item.Occupancy</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
