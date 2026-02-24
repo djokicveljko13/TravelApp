@@ -38,5 +38,52 @@ namespace TravelApp.Controllers
             }
             return View();
         }
+        [HttpGet]
+        public IActionResult Update([FromRoute] int id)
+        {
+            var villa = applicationDbContext.Villas.FirstOrDefault(v => v.Id == id);
+            if (villa == null)
+            {
+                TempData["error"] = "Villa not found.";
+                return NotFound();
+            }
+            return View(villa);
+        }
+        [HttpPost]
+        public IActionResult Update(Villa Villa)
+        {
+            if (Villa == null || Villa.Id == 0)
+            {
+                TempData["error"] = "Villa not found.";
+                return NotFound();
+            }
+            applicationDbContext.Villas.Update(Villa);
+            applicationDbContext.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        [HttpGet]
+        public IActionResult Delete([FromRoute] int id)
+        {
+            var villa = applicationDbContext.Villas.FirstOrDefault(v => v.Id == id);
+            if (villa == null)
+            {
+                TempData["error"] = "Villa not found.";
+                return NotFound();
+            }
+            return View(villa);
+        }
+        [HttpPost]
+        public IActionResult Delete(Villa Villa)
+        {
+            if (Villa == null || Villa.Id == 0)
+            {
+                TempData["error"] = "Villa not found.";
+                return NotFound();
+            }
+            applicationDbContext.Villas.Remove(Villa);
+            applicationDbContext.SaveChanges();
+            TempData["success"] = "Villa deleted successfully.";
+            return RedirectToAction("Index");
+        }
     }
 }

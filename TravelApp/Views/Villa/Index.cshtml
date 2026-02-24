@@ -20,6 +20,7 @@
                             <th>Price</th>
                             <th>Sqft</th>
                             <th>Occupancy</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -30,6 +31,17 @@
                                 <td>@item.Price.ToString("c")</td>
                                 <td>@item.SquareMeters</td>
                                 <td>@item.Occupancy</td>
+                                <td>
+                                    <div class="btn-group w-75" role="group">
+                                        <a asp-action="Update" asp-route-id="@item.Id" class="btn btn-primary mx-2">
+                                            <i class="bi bi-pencil"></i> Edit
+                                        </a>
+                                      
+                                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">
+                                            <i class="bi bi-trash"></i> Delete
+                                        </a>
+                                    </div>
+                                </td>
                             </tr>
                         }
                     </tbody>
