@@ -1,0 +1,61 @@
+﻿@model TravelApp.Domain.Entities.Villa
+
+<div class="container my-5 pb-5">
+
+    <div class="card shadow-lg border-0">
+
+        <div class="card-header bg-success text-white text-center py-3">
+            <h2 class="mb-0">Create Villa</h2>
+        </div>
+        <div class="card-body">
+            <form method="post" asp-action="Create">
+                <div asp-validation-summary="All"></div>
+                <div class="form-floating py-1">
+                <input asp-for="Name" type="text" class="form-control mb-3" />
+                <label asp-for="Name" class=" ms-2 p2"></label>
+              <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+
+                <div class="form-floating py-1">
+                    <input asp-for="Description" type="text" class="form-control mb-3" />
+                    <label asp-for="Description" class=" ms-2 p2"></label>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+
+                <div class="form-floating py-1">
+                    <input asp-for="Price" class="form-control mb-3"  type="number"/>
+                    <label asp-for="Price" class=" ms-2 p2"></label>
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+
+                <div class="form-floating py-1">
+                    <input asp-for="SquareMeters" class="form-control mb-3" type="number" />
+                    <label asp-for="SquareMeters" class=" ms-2 p2"></label>
+                    <span asp-validation-for="SquareMeters" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="Occupancy" class="form-control" type="number" placeholder="Occupancy" />
+                    <label asp-for="Occupancy"></label>
+                    <span asp-validation-for="Occupancy" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="ImageUrl" class="form-control" placeholder="Image URL" />
+                    <label asp-for="ImageUrl"></label>
+                    <span asp-validation-for="ImageUrl" class="text-danger"></span>
+                </div>
+                <div class="row pt-2">
+                    <div class="col-6">
+                        <button type="submit" class="btn btn-primary w-100">
+                            <i class="bi bi-plus"></i> Create
+                        </button>
+                    </div>
+                    <div class="col-6">
+                       <a asp-action="Index" asp-controller="Villa" class="btn btn-danger w-100">Cancel</a>
+                    </div>
+                 </div>
+        
+
+        </form>
+        </div>
+    </div>
+ 
